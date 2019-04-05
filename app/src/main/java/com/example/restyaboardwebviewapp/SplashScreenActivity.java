@@ -1,12 +1,25 @@
 package com.example.restyaboardwebviewapp;
 
+import android.content.Intent;
 import android.os.Build;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class SplashScreenActivity extends AppCompatActivity {
+
+    ImageView imgLogo;
+    TextView tvTitle;
+    Animation uptodown;
+    Animation downtoup;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,5 +41,31 @@ public class SplashScreenActivity extends AppCompatActivity {
             /*Esconder la AppBar*/
             getSupportActionBar().hide();
         }
+
+
+        imgLogo=findViewById(R.id.ivLogoSplashScreen);
+        tvTitle=findViewById(R.id.tvTitle);
+
+        uptodown= AnimationUtils.loadAnimation(this, R.anim.uptodown);
+        downtoup=AnimationUtils.loadAnimation(this,R.anim.downtoup);
+        tvTitle.setAnimation(downtoup);
+        imgLogo.setAnimation(uptodown);
+
+        openApp(true);
+
     }
+
+    private void openApp(boolean locationPermission) {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(SplashScreenActivity
+                        .this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        }, 3000);
+    }
+
 }
