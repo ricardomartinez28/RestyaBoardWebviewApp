@@ -40,7 +40,7 @@
             android:text="WorkFlow System"
             android:textColor="@color/WhiteLogo"
             android:textSize="36sp"
-            app:fontFamily="@font/bell_gothic_bold_bt" />
+            app:fontFamily="@font/expletus_sans_regular" />
 
     </LinearLayout>
 
