@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     });
 
         webView.loadUrl("https://restya.pw/");
+        webView.getSettings().setBuiltInZoomControls(false);
 
         webView.setWebChromeClient(new WebChromeClient()
         {
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         webView.loadUrl("https://restya.pw/");
-
+        webView.getSettings().setBuiltInZoomControls(false);
 
 
     }
